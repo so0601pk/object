@@ -1,6 +1,20 @@
 <?php
 
-class Product{
+//親クラス（基底クラス・スーパークラス）
+class BaseProduct{
+    //変数　関数
+    public function echoProduct(){
+        echo '親クラスです';
+    }
+
+    //オーバーライド（上書き）
+    public function getProduct(){
+        echo '親の関数です';
+    }
+}
+
+//小クラス（派生クラス・サブクラス） 親クラスの変数や関数が使えるようになる
+class Product extends BaseProduct{
     //アクセス修飾子,private（外からアクセス出来ない）, protected（自分と継承したクラス）, piblic(公開)
     //変数
     //クラス内で使える変数
@@ -34,6 +48,10 @@ $instance = new Product('テスト');
 var_dump($instance);
 
 $instance->getProduct();
+echo '<br>';
+
+//親クラスのメソッド
+$instance->echoProduct();
 echo '<br>';
 
 $instance->addProduct('追加分');
